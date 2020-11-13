@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RecyclerViewProject</string>
+    <string name="notredeam">Notre Deam College</string>
+    <string name="dhaka">Dhaka</string>
+    <string name="chief">Chief</string>
+    <string name="email">notredeam@edu.bd</string>
+    <string name="phone">01524685002</string>
+</resources>
