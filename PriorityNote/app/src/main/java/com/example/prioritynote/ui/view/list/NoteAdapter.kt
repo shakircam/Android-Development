@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.prioritynote.R
 import com.example.prioritynote.data.model.Priority
@@ -54,7 +55,9 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.MyViewHolder>() {
     }
 
     fun setData(priorityNote: List<PriorityNote>){
+        val priorityNoteDiffUtil = PriorityNoteDiffUtil(noteList,priorityNote)
+        val priorityNoteDiffResult = DiffUtil.calculateDiff(priorityNoteDiffUtil)
         this.noteList = priorityNote
-        notifyDataSetChanged()
+        priorityNoteDiffResult.dispatchUpdatesTo(this)
     }
 }

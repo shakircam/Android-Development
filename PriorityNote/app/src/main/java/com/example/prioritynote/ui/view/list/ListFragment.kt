@@ -14,6 +14,7 @@ import com.example.prioritynote.R
 import com.example.prioritynote.databinding.FragmentListBinding
 import com.example.prioritynote.ui.viewmodel.PriorityNoteViewModel
 import com.example.prioritynote.ui.viewmodel.SharedViewModel
+import com.example.prioritynote.utils.hideKeyboard
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
 
@@ -35,12 +36,12 @@ class ListFragment : Fragment(),SearchView.OnQueryTextListener {
         _binding = FragmentListBinding.inflate(inflater,container,false)
 
         setHasOptionsMenu(true)
-
+        //keyboard hiding..
+         hideKeyboard(requireActivity())
         binding.floatingActionButton.setOnClickListener {
           findNavController().navigate(R.id.action_listFragment_to_addFragment)
 
         }
-
 
         //setupRecyclerView
         initRecyclerView()
@@ -49,7 +50,6 @@ class ListFragment : Fragment(),SearchView.OnQueryTextListener {
         priorityNoteViewModel.getAllData.observe(viewLifecycleOwner,{data ->
             adapter.setData(data)
         })
-
 
         return binding.root
     }
