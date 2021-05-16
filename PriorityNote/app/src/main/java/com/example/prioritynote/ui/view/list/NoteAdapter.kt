@@ -16,7 +16,7 @@ import com.example.prioritynote.data.model.PriorityNote
 
 class NoteAdapter : RecyclerView.Adapter<NoteAdapter.MyViewHolder>() {
 
-    private var noteList = emptyList<PriorityNote>()
+     var noteList = emptyList<PriorityNote>()
 
     class MyViewHolder(view :View):RecyclerView.ViewHolder(view){
 
